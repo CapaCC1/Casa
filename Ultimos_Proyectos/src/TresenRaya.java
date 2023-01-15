@@ -126,7 +126,7 @@ public class TresenRaya {
 		return posicionOcupada;
 	}
 	public static void main(String[] args) {
-		
+		System.out.println("------------------");
 		Scanner in1 = new Scanner (System.in);
 		
 		char [][] matriz = new char [3][3];
