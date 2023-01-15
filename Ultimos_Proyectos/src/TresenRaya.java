@@ -1,7 +1,17 @@
 
 import java.util.Scanner;
 public class TresenRaya {
-
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
+	public static final String ANSI_RESET = "\u001B[0m";
+	
+	
 	public static char[][] rellenarVacio(char [][] matriz) {
 		char vacio = '-';
 		for (int i = 0; i < matriz.length; i++) {
@@ -35,10 +45,10 @@ public class TresenRaya {
 				resultado += matriz[i][j] + "\t";
 
 				if (i < matriz.length - 1) {
-					resultado += "";
+					resultado += ANSI_YELLOW + "" + ANSI_RESET;
 				}
 			}
-			resultado += "\n";
+			resultado += ANSI_YELLOW + "\n" + ANSI_RESET;
 		}
 		return resultado;	
 	}
@@ -105,7 +115,7 @@ public class TresenRaya {
 			matriz[filas][columnas] = jugador1;
 			ocupado[filas][columnas] = true;
 		}else{
-			System.err.println("POSICION OCUPADA");
+			System.err.println(ANSI_RED + "POSICION OCUPADA" + ANSI_RESET);
 			posicionOcupada = true;
 		}
 		return posicionOcupada;
@@ -120,13 +130,12 @@ public class TresenRaya {
 			matriz[filas][columnas] = jugador2;
 			ocupado[filas][columnas] = true;
 		}else{
-			System.err.println("POSICION OCUPADA");
+			System.err.println(ANSI_RED + "POSICION OCUPADA" + ANSI_RESET);
 			posicionOcupada = true;
 		}
 		return posicionOcupada;
 	}
 	public static void main(String[] args) {
-		System.out.println("------------------");
 		Scanner in1 = new Scanner (System.in);
 		
 		char [][] matriz = new char [3][3];
@@ -139,11 +148,13 @@ public class TresenRaya {
 		boolean winner1 = false;
 		boolean winner2 = false;
 
-		System.out.println("--TRES EN RAYA--\n");
+		System.out.println(ANSI_YELLOW + "------------------" + ANSI_RESET);
+		System.out.println(ANSI_YELLOW + "|--TRES EN RAYA--|" + ANSI_RESET);
+		System.out.println(ANSI_YELLOW + "------------------" + ANSI_RESET);
 		while(!winner1 || !winner2) {
 
-			System.out.println("Turno Jugador 1\n");
-			System.out.println("Introduce posicion");
+			System.out.println(ANSI_GREEN + "Turno Jugador 1\n" + ANSI_RESET);
+			System.out.println(ANSI_YELLOW + "Introduce posicion" + ANSI_RESET);
 			String numero = in1.next();
 			
 			int [] filasColumnas = convertirInt(numero);
@@ -158,16 +169,16 @@ public class TresenRaya {
 			winner2 = comprobarJuego(matriz, winner1, winner2);
 
 				if(winner1){
-					System.out.println("GANADOR Jugador 1");
+					System.out.println(ANSI_GREEN + "GANADOR Jugador 1" + ANSI_RESET);
 					break;
 				}
 				if(winner2) {
-					System.out.println("GANADOR Jugador 2!");
+					System.out.println(ANSI_CYAN + "GANADOR Jugador 2!" + ANSI_RESET);
 					break;
 				}	
 				
-			System.out.println("Turno Jugador 2");
-			System.out.println("Introduce posicion");
+			System.out.println(ANSI_CYAN + "Turno Jugador 2" + ANSI_RESET);
+			System.out.println(ANSI_YELLOW + "Introduce posicion" + ANSI_RESET);
 			numero = in1.next();
 			
 			filasColumnas = convertirInt(numero);
@@ -179,6 +190,7 @@ public class TresenRaya {
 			System.out.println(mostrarMatriz(matriz));
 
 		}
+		in1.close();
 		}
 }
 	
