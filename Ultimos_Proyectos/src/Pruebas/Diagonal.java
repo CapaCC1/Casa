@@ -42,6 +42,7 @@ public class Diagonal {
 		llenarMatriz(matriz);
 		diagonal1(matriz);
 		System.out.println(mostrarMatriz(matriz));
+		in1.close();
 	}
 
 }
