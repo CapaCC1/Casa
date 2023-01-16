@@ -12,7 +12,7 @@ public class cuadradoMagico {
 				matriz[i][j] = in1.nextInt();
 			}	
 		}
-		
+		in1.close();
 	}
 	
 	public static String mostrarMatriz(int [][] matriz) {
