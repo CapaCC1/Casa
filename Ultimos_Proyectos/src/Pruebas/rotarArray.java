@@ -37,7 +37,7 @@ public class rotarArray {
 	}
 	public static void rotaDerechaArrayInt (int mover) {
 		int [] numeros = {1,2,3,4,5,6,7,8};
-		int i,ultimo;
+		int i,ultimo; 
 		mover = mover % numeros.length;
 		for (int j = 0; j < mover; j++) {
 			ultimo = numeros[numeros.length-1];
@@ -62,7 +62,7 @@ public class rotarArray {
 		rotaIzquierdaArrayInt(mover);
 		System.out.println("\n");
 
-
+		in1.close();
 	}
 
 }
