@@ -79,6 +79,7 @@ public class cuadradoMagico {
 		}else {
 			System.err.println("Cte Magica NO Detectada!!");
 		}
+		in1.close();
 	}
 
 }
